@@ -1,15 +1,16 @@
 <?php
 
+//conexão com o banco de dados
     $dbhost = 'localhost';
     $dbUsername = 'root';
-    $dbPassword = '12345';
+    $dbPassword = '';
     $dbName = 'gerenciador-cliente';
 
     $conexao = new mysqli($dbhost,  $dbUsername, $dbPassword, $dbName);
 
-    if ($conexao->connect_errno) {
+  /*   if ($conexao->connect_errno) {
         echo "erro ";
     } else {
-        echo "conexão efetuada com sucesso"
-    }
+        echo "conexão efetuada com sucesso";
+    } */
 ?>
