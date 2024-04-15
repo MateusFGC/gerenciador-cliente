@@ -25,22 +25,21 @@ if((!isset($_SESSION['email'])== true) and (!isset($_SESSION['senha'])== true)) 
 
         //checa se o id, nome e email digitado existe na variavel $data digitada na pesquisa
         //o % na frente e atras da variavel '%$data%, significa que ele aceita qualquer formato, string, numero ..etc
-        $sql = "SELECT * FROM cliente WHERE id LIKE '%$data%' or nome LIKE '%$data%' or email LIKE '%$data%' ORDER BY id DESC";
+        $sql = "SELECT * FROM usuario WHERE id LIKE '%$data%' or nome LIKE '%$data%' or email LIKE '%$data%' ORDER BY id DESC";
 
        
     } else 
     {  //solicitar os registros no banco de dados
         //DESC maior para o menor
-        $sql = "SELECT * FROM cliente ORDER BY id DESC";
+        $sql = "SELECT * FROM usuario ORDER BY id DESC";
 
+    
     } 
 
 
     //executar os comandos acima
     $result = $conexao->query($sql);
-   /*  print_r($sql);
-    print_r('<br>');
-  print_r($result); */
+   
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -49,31 +48,51 @@ if((!isset($_SESSION['email'])== true) and (!isset($_SESSION['senha'])== true)) 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    
-    <title>Sistema</title>
+     <link rel="stylesheet" href="style.css">
+<title>Sistema</title>
     <style>
-        
+    h1{
+        color:white;
+        font-size:30px;
+    }
+   
     </style>
 </head>
 
 <body>
-    <?php
-    echo "<h1> Seja bem vindo <u>$logado<u></h1>"
-   ?>
-    <div>
-        <a href="closed.php">Sair</a>
-        <a href="clientmanager.html">Voltar</a>
-        <br><br><br>
-    </div>
+       <nav class="navbar navbar-expand-lg navbar-dark btn-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"><?php
+    echo "<h1> Seja bem vindo, <u>$logado<u>!</h1>"
+   ?></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+        <div class="d-flex">
+            <a href="closed.php" class="btn btn-danger me-3 ">Sair</a>
+<!--             <a href="clientmanager.html" class="btn btn-info me-2">Voltar</a>
+ -->
+        </div>
+    </nav>
+  
+    <main >
     <div class="box-search d-flex justify-content-center">
-        <input type="search" class="form-control w-32" placeholder="Pesquisar" name="" id="pesquisar" >
+        <input type="search" class="form-control " placeholder="Pesquise aqui!" name="" id="pesquisar" >
         <button onclick="SearchData()" class="btn btn-primary" >
+        <!-- Faz a consulta de pesquisa -->
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
   <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
 </svg>
         </button>
+        <a class='btn btn-success ' href='addcustomer.php'>
+         <!-- Edita o cliente -->
+            <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-plus-circle' viewBox='0 0 16 16'>
+  <path d='M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16'/>
+  <path d='M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4'/>
+</svg></a>
     </div>
-    <div>
+  
         <table class="table table-dark table-striped">
             <thead>
                 <tr>
@@ -106,11 +125,7 @@ if((!isset($_SESSION['email'])== true) and (!isset($_SESSION['senha'])== true)) 
             echo"<td>".$user_data['email']."</td>";
             echo"<td>".$user_data['senha']."</td>";
             echo"<td> 
-            <a class='btn btn-success btn-sm' href='form.php'> 
-            <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-plus-circle' viewBox='0 0 16 16'>
-  <path d='M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16'/>
-  <path d='M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4'/>
-</svg></a>
+          
             <a class='btn btn-primary btn-sm' href='edit.php?id=$user_data[id]'>
             <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-brush' viewBox='0 0 16 16'>
   <path d='M15.825.12a.5.5 0 0 1 .132.584c-1.53 3.43-4.743 8.17-7.095 10.64a6.1 6.1 0 0 1-2.373 1.534c-.018.227-.06.538-.16.868-.201.659-.667 1.479-1.708 1.74a8.1 8.1 0 0 1-3.078.132 4 4 0 0 1-.562-.135 1.4 1.4 0 0 1-.466-.247.7.7 0 0 1-.204-.288.62.62 0 0 1 .004-.443c.095-.245.316-.38.461-.452.394-.197.625-.453.867-.826.095-.144.184-.297.287-.472l.117-.198c.151-.255.326-.54.546-.848.528-.739 1.201-.925 1.746-.896q.19.012.348.048c.062-.172.142-.38.238-.608.261-.619.658-1.419 1.187-2.069 2.176-2.67 6.18-6.206 9.117-8.104a.5.5 0 0 1 .596.04M4.705 11.912a1.2 1.2 0 0 0-.419-.1c-.246-.013-.573.05-.879.479-.197.275-.355.532-.5.777l-.105.177c-.106.181-.213.362-.32.528a3.4 3.4 0 0 1-.76.861c.69.112 1.736.111 2.657-.12.559-.139.843-.569.993-1.06a3 3 0 0 0 .126-.75zm1.44.026c.12-.04.277-.1.458-.183a5.1 5.1 0 0 0 1.535-1.1c1.9-1.996 4.412-5.57 6.052-8.631-2.59 1.927-5.566 4.66-7.302 6.792-.442.543-.795 1.243-1.042 1.826-.121.288-.214.54-.275.72v.001l.575.575zm-4.973 3.04.007-.005zm3.582-3.043.002.001h-.002z'/>
@@ -128,7 +143,7 @@ if((!isset($_SESSION['email'])== true) and (!isset($_SESSION['senha'])== true)) 
         ?>
             </tbody>
         </table>
-    </div>
+    </main>
 </body>
 <script>
     //Barra de pesquisa

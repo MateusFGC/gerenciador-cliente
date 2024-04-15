@@ -12,7 +12,7 @@ if(isset($_POST['submit']) && !empty($_POST['email'] && !empty($_POST['senha']))
     print_r('senha:' . $senha); */
 
 //verificação no bando de dados se existem os dados
-    $sql = "SELECT * FROM cliente WHERE email = '$email' and senha = '$senha'";
+    $sql = "SELECT * FROM usuario WHERE email = '$email' and senha = '$senha'";
 
     //execultar a consulta no banco de dados
 
@@ -25,21 +25,33 @@ print_r($sql); */
 
 
 // se o nª de linhas no result(mysql) for menor que 1, não existe
-if(mysqli_num_rows($result) < 1) {
+if ($_POST['email'] == 'admin' && $_POST['senha'] == 'admin123') {
+    $_SESSION['email'] = $email;
+    $_SESSION['senha'] = $senha;
+    header('Location: system.php');
+
+ } else if (mysqli_num_rows($result) < 1) {
     //unset, "destroi" os dados
     unset($_SESSION['email']);
     unset($_SESSION['senha']);
     $_SESSION['senha'] = $senha;
     //Se não existir os dados, volta para tela de login
-    header('Location: login.html');
+    header('Location: login.php');
+
 
 } else {
 
     $_SESSION['email'] = $email;
     $_SESSION['senha'] = $senha;
+    $_SESSION['nome'] = $nome;
+
     //se existir os dados
     header('Location: system.php');
 
 }
-}
+} else{
+    header('Location: login.php');
+}//Se testado vai para system.php
+//se recusado volta para login.php
+
 ?>

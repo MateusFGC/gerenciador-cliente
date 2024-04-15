@@ -8,13 +8,13 @@ if (!empty($_GET['id'])) {
     $id = $_GET['id'];
 
     //verificação se existe o id no banco de dados
-    $sqlSelect = "SELECT * FROM cliente WHERE id=$id";
+    $sqlSelect = "SELECT * FROM usuario WHERE id=$id";
 
     $result = $conexao->query($sqlSelect);
 
     if($result->num_rows > 0){
 
-   $sqlDelete = "DELETE FROM cliente WHERE id=$id";
+   $sqlDelete = "DELETE FROM usuario WHERE id=$id";
    $resultDelete = $conexao->query($sqlDelete);
     }
 

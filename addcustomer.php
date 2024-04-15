@@ -19,7 +19,7 @@ if (isset($_POST['submit'])) {
 //consulta no banco de dados
 
     $result = mysqli_query($conexao, "INSERT INTO usuario(nome,data_nasc,cpf,rg,tel,endereco,email,senha) VALUES('$nome','$data_nasc','$cpf','$rg','$tel','$endereco','$email','$senha')");
-    header('Location: login.php');
+    header('Location: system.php');
 } 
 ?>
 <!DOCTYPE html>
@@ -45,7 +45,7 @@ if (isset($_POST['submit'])) {
 
 <body>
     <div class="box">
-        <form action="form.php" method="POST">
+        <form action="addcustomer.php" method="POST">
 
             <fieldset>
             <legend><b>Adicionar um Cliente</b></legend>
@@ -86,7 +86,7 @@ if (isset($_POST['submit'])) {
                <input type="submit" name="submit" class="btn-submit" value="Enviar">
 
         </form>
-        <a href="login.php">Voltar</a>
+        <a href="system.php">Voltar</a>
     </div>
 </body>
 

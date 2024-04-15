@@ -12,7 +12,7 @@ if (isset($_POST['update'])){
     $email = $_POST['email'];
     $senha = $_POST['senha'];
 
-    $sqlUpdate = "UPDATE cliente SET nome='$nome',data_nasc='$data_nasc',cpf='$cpf',rg='$rg',tel='$tel',endereco='$endereco',email='$email',senha='$senha' WHERE id='$id'";
+    $sqlUpdate = "UPDATE usuario SET nome='$nome',data_nasc='$data_nasc',cpf='$cpf',rg='$rg',tel='$tel',endereco='$endereco',email='$email',senha='$senha' WHERE id='$id'";
 
     $result - $conexao->query($sqlUpdate);
 
