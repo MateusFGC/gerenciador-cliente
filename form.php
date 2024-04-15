@@ -30,15 +30,15 @@ if (isset($_POST['submit'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-        <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
 
     <title>Document</title>
     <style>
-               body{
+        body {
             display: flex;
-    gap: 1rem;
-    align-items: center;
-    justify-content: center;
+            gap: 1rem;
+            align-items: center;
+            justify-content: center;
         }
     </style>
 </head>
@@ -48,7 +48,7 @@ if (isset($_POST['submit'])) {
         <form action="form.php" method="POST">
 
             <fieldset>
-            <legend><b>Adicionar um Cliente</b></legend>
+                <legend><b>Adicionar um Cliente</b></legend>
 
                 <div class="inputBox">
                     <input type="text" name="email" id="email" required>
@@ -56,7 +56,7 @@ if (isset($_POST['submit'])) {
                 </div>
                 <div class="inputBox">
                     <input type="text" name="senha" id="senha" required>
-                    <label for="nome">Digite sua  senha</label>
+                    <label for="nome">Digite sua senha</label>
                 </div>
                 <div class="inputBox">
                     <input type="text" name="nome" id="nome" required>
@@ -83,7 +83,7 @@ if (isset($_POST['submit'])) {
                     <label for="endereco">Endereço</label>
                 </div>
 
-               <input type="submit" name="submit" class="btn-submit" value="Enviar">
+                <input type="submit" name="submit" class="btn-submit" value="Enviar">
 
         </form>
         <a href="login.php">Voltar</a>

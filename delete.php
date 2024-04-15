@@ -14,8 +14,8 @@ if (!empty($_GET['id'])) {
 
     if($result->num_rows > 0){
 
-   $sqlDelete = "DELETE FROM usuario WHERE id=$id";
-   $resultDelete = $conexao->query($sqlDelete);
+        $sqlDelete = "DELETE FROM usuario WHERE id=$id";
+        $resultDelete = $conexao->query($sqlDelete);
     }
 
 

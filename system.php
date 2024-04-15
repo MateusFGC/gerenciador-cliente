@@ -47,52 +47,57 @@ if((!isset($_SESSION['email'])== true) and (!isset($_SESSION['senha'])== true)) 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-     <link rel="stylesheet" href="style.css">
-<title>Sistema</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>Sistema</title>
     <style>
-    h1{
-        color:white;
-        font-size:30px;
-    }
-   
+        h1 {
+            color: white;
+            font-size: 30px;
+        }
     </style>
 </head>
 
 <body>
-       <nav class="navbar navbar-expand-lg navbar-dark btn-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark btn-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="#"><?php
     echo "<h1> Seja bem vindo, <u>$logado<u>!</h1>"
    ?></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
         </div>
         <div class="d-flex">
             <a href="closed.php" class="btn btn-danger me-3 ">Sair</a>
-<!--             <a href="clientmanager.html" class="btn btn-info me-2">Voltar</a>
+            <!--             <a href="clientmanager.html" class="btn btn-info me-2">Voltar</a>
  -->
         </div>
     </nav>
-  
-    <main >
-    <div class="box-search d-flex justify-content-center">
-        <input type="search" class="form-control " placeholder="Pesquise aqui!" name="" id="pesquisar" >
-        <button onclick="SearchData()" class="btn btn-primary" >
-        <!-- Faz a consulta de pesquisa -->
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
-</svg>
-        </button>
-        <a class='btn btn-success ' href='addcustomer.php'>
-         <!-- Edita o cliente -->
-            <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-plus-circle' viewBox='0 0 16 16'>
-  <path d='M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16'/>
-  <path d='M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4'/>
-</svg></a>
-    </div>
-  
+
+    <main>
+        <div class="box-search d-flex justify-content-center">
+            <input type="search" class="form-control " placeholder="Pesquise aqui!" name="" id="pesquisar">
+            <button onclick="SearchData()" class="btn btn-primary">
+                <!-- Faz a consulta de pesquisa -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search"
+                    viewBox="0 0 16 16">
+                    <path
+                        d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+                </svg>
+            </button>
+            <a class='btn btn-success ' href='addcustomer.php'>
+                <!-- Edita o cliente -->
+                <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor'
+                    class='bi bi-plus-circle' viewBox='0 0 16 16'>
+                    <path d='M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16' />
+                    <path
+                        d='M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4' />
+                </svg></a>
+        </div>
+
         <table class="table table-dark table-striped">
             <thead>
                 <tr>
@@ -112,7 +117,7 @@ if((!isset($_SESSION['email'])== true) and (!isset($_SESSION['senha'])== true)) 
 
             </thead>
             <tbody>
-        <?php
+                <?php
         while($user_data = mysqli_fetch_assoc($result)){
             echo"<tr>";
             echo"<td>".$user_data['id']."</td>";
@@ -147,18 +152,18 @@ if((!isset($_SESSION['email'])== true) and (!isset($_SESSION['senha'])== true)) 
 </body>
 <script>
     //Barra de pesquisa
-    var search = document.getElementById('pesquisar'); 
+    var search = document.getElementById('pesquisar');
 
-    search.addEventListener("keydown", function(event) {
+    search.addEventListener("keydown", function (event) {
         if (event.key === "Enter") {
-            SearchData();           
+            SearchData();
         }
     });
 
     //Função para apresentar a pesquisa na URL
     function SearchData() {
-        window.location = 'system.php?search='+ search.value;
-     }
+        window.location = 'system.php?search=' + search.value;
+    }
 </script>
 
 
