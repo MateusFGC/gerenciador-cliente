@@ -1,4 +1,4 @@
-<div><translate><h2> Gerenciador de Clientes</h2><p> <strong>Projeto:</strong></p><p> Este projeto tem como objetivo gerenciar clientes cadastrados no sistema.</p><p> <strong>Requisitos:</strong></p><ol >
+<div><translate><h2> Gerenciador de Clientes</h2><p> <strong>Projeto:</strong></p><p> Este projeto tem como objetivo cadastrar e gerenciar clientes no sistema.</p><p> <strong>Requisitos:</strong></p><ol >
 <li >
 <p> <strong>Baixar o banco de dados MySQL:</strong></p>
 <ul >
