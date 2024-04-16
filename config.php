@@ -4,7 +4,7 @@
     $dbhost = 'localhost';
     $dbUsername = 'root';
     $dbPassword = '';
-    $dbName = 'mysql';
+    $dbName = 'cliente';
 
     $conexao = new mysqli($dbhost,  $dbUsername, $dbPassword, $dbName);
 
